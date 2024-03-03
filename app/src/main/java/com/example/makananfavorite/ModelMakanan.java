@@ -1,24 +1,24 @@
 package com.example.makananfavorite;
 
 public class ModelMakanan {
-    String nama, deskripsi;
-    int image;
+    String namaMakanan, deskripsiMakanan;
+    String image;
 
-    public ModelMakanan(String nama, String deskripsi, int image) {
-        this.nama = nama;
-        this.deskripsi = deskripsi;
+    public ModelMakanan(String namaMakanan, String deskripsiMakanan, String image) {
+        this.namaMakanan = namaMakanan;
+        this.deskripsiMakanan = deskripsiMakanan;
         this.image = image;
     }
 
-    public String getNama() {
-        return nama;
+    public String getNamaMakanan() {
+        return namaMakanan;
     }
 
-    public String getDeskripsi() {
-        return deskripsi;
+    public String getDeskripsiMakanan() {
+        return deskripsiMakanan;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 }
