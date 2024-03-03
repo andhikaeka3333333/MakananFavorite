@@ -22,30 +22,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivImageMakanan"
             android:text="Nama"
             android:textSize="30dp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:fontFamily="@font/inter"/>
+            android:fontFamily="@font/inter"
+            android:layout_marginStart="20dp"/>
 
         <TextView
             android:id="@+id/tvDeskripsi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/tvNamaMakananFav"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivImageMakanan"
             android:textSize="15dp"
             android:textColor="#000000"
             android:text="Deskripsi"
             android:fontFamily="@font/inter"
-            android:maxWidth="260dp"/>
+            android:maxWidth="195dp"
+            android:layout_marginStart="20dp"/>
         <ImageView
+            android:scaleType="centerCrop"
             android:id="@+id/ivImageMakanan"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:src="@mipmap/ic_launcher"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 

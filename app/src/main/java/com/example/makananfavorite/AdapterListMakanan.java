@@ -10,12 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class AdapterListMakanan extends RecyclerView.Adapter<AdapterListMakanan.ViewHolder> {
 
+    private Context context;
     private List<ModelMakanan> listData;
     private LayoutInflater mInflater;
+    private ItemClickListener mClickListener;
 
     public AdapterListMakanan(List<ModelMakanan> listData, Context context){
         this.listData = listData;
@@ -31,11 +35,14 @@ public class AdapterListMakanan extends RecyclerView.Adapter<AdapterListMakanan.
 
     @Override
     public void onBindViewHolder(@NonNull AdapterListMakanan.ViewHolder holder, int position) {
-        final ModelMakanan items = this.listData.get(position);
+        ModelMakanan items = this.listData.get(position);
 
-        holder.tvMakananFavorite.setText(items.getNama());
-        holder.tvDeskripsi.setText(items.getDeskripsi());
-        holder.ivImageMakanan.setImageResource(items.getImage());
+        holder.tvMakananFavorite.setText(items.getNamaMakanan());
+        holder.tvDeskripsi.setText(items.getDeskripsiMakanan());
+
+        Glide.with(holder.itemView.getContext())
+                .load(items.getImage())
+                .into(holder.ivImageMakanan);
     }
 
     @Override
@@ -43,7 +50,7 @@ public class AdapterListMakanan extends RecyclerView.Adapter<AdapterListMakanan.
         return listData.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView tvMakananFavorite, tvDeskripsi;
         ImageView ivImageMakanan;
@@ -52,7 +59,29 @@ public class AdapterListMakanan extends RecyclerView.Adapter<AdapterListMakanan.
             tvMakananFavorite = itemView.findViewById(R.id.tvNamaMakananFav);
             tvDeskripsi = itemView.findViewById(R.id.tvDeskripsi);
             ivImageMakanan = itemView.findViewById(R.id.ivImageMakanan);
+            itemView.setOnClickListener(this);
+        }
 
+        @Override
+        public void onClick(View view) {
+            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
         }
     }
+
+    // convenience method for getting data at click position
+    ModelMakanan getItem(int id) {
+        return listData.get(id);
+    }
+
+    // allows clicks events to be caught
+    void setClickListener(ItemClickListener itemClickListener) {
+        this.mClickListener = itemClickListener;
+    }
+
+    // parent activity will implement this method to respond to click events
+    public interface ItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+
 }
