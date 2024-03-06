@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 public class PreviewProduct extends AppCompatActivity {
-    ImageView ivGambarProduk;
+    ImageView ivGambarProduk, ivArrowBack;
     TextView tvNamaProduk;
     Context context;
 
@@ -28,6 +29,7 @@ public class PreviewProduct extends AppCompatActivity {
 
 
         ivGambarProduk = findViewById(R.id.ivGambarProduk);
+        ivArrowBack = findViewById(R.id.ivArrowBack);
         tvNamaProduk = findViewById(R.id.tvNamaProduk);
 
 
@@ -62,6 +64,16 @@ public class PreviewProduct extends AppCompatActivity {
                 break;
 
         }
+
+        ivArrowBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PreviewProduct.this,MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+
+            }
+        });
 
     }
 }
