@@ -7,6 +7,8 @@
     tools:context=".PreviewProduct"
     android:background="@color/white">
 
+
+
     <ImageView
         android:id="@+id/ivGambarProduk"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,5 +29,15 @@
         android:text="Product Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/ivArrowBack"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/ic_arrow_back"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

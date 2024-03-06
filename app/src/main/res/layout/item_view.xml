@@ -13,9 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-
-        >
+        android:layout_margin="16dp" >
 
         <TextView
             android:id="@+id/tvNamaMakananFav"
@@ -24,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivImageMakanan"
             android:text="Nama"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:fontFamily="@font/inter"
